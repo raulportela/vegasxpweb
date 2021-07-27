@@ -7,12 +7,31 @@
     font-weight: 300; 
     box-sizing: border-box; 
     font-family: 'Lato', sans-serif;
+	
 }
 
-body{
-	background: linear-gradient(to right, #6017B5, #9b59b6);
+/*----------- ROSA DO TIKOTECO --------------- 
+#FAC569 ou #8061A7
+#FF0050
+----------- ROSA DO TIKOTECO --------------- */
 
+/*----------- TAG HEADER --------------- */
+header {
+	position: absolute;
+	width: 100%;
+	height: 200px;
+    background: #227093;
+	padding: 30px;
+	border: none;
 }
+
+/*----------- FIM TAG HEADER --------------- */
+
+/*----------- TAG MAIN --------------- */
+main{
+	margin-top:200px;
+}
+/*----------- FIM TAG MAIN --------------- */
 
 /*----------- CONTAINER --------------- */
 .container {
@@ -26,129 +45,209 @@ body{
 /*----------- CABEÇALHO --------------- */
 
 .logo {
-    width: 200px; 
-    height: 56px; 
-    margin: 10px;
-    float: right; 
-    background: url(../anexos/logo-mobile.png) center center/200px no-repeat; 
-    font-size: 0px;}
+	width: 135px; 
+	height: 145px; 
+	float: left; 
+    background: url(../anexos/logo.png) center center/135px no-repeat; 
+	font-size: 0px;
+}
 
 
 /*----------- FIM CABEÇALHO --------------- */
 
 /*----------- HAMBURGUER MENU --------------- */
-#menu{
-	width: 35px;
-	height: 30px;
-	margin: 30px 0 20px 20px;
+.menu-wrap{
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	margin: 30px;
+}
+
+.toggler{
+	position: absolute;
+	top: 0.5rem;
+	right: 0;
+	width: 60px;
+	height: 60px;
+	z-index: 3;
+	opacity: 0;
 	cursor: pointer;
 }
-.bar{
-	height: 5px;
-	width: 100%;
-	background-color: #b81568;
-	display: block;
-	border-radius: 5px;
-	transition: 0.3s ease;
-}
-#bar1{
-	transform: translateY(-4px);
-}
-#bar3{
-	transform: translateY(4px);
-}
-.nav li a
-{
-	color: #2c3e50;
-	text-decoration: none;
-}
-.nav li a:hover
-{
-	font-weight: bold;
-}
-.nav li
-{
-	list-style: none;
-	padding: 16px 0;
-}
-.nav
-{
-	padding: 0;
-	margin: 0 20px;
-	transition: 0.3s ease;
-	display: none;
-}
-.menu-bg, #menu-bar{
-	top:0;
-	left: 0;
-	position: absolute;
-}
-.menu-bg{
-	z-index: 1;
-	width: 0;
-	height: 0;
-	margin: 30px 0 20px 20px;
-	background: radial-gradient(circle,#227093, #2c2c54);
-	border-radius: 50%;
-	transition: 0.3s ease;
-}
-#menu-bar{
-	z-index:2;
 
+.hamburger{
+	position: absolute;
+	top: 0.5rem;
+	right: 0;
+	width: 145px;
+	height: 145px;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background: linear-gradient(to right, #fac569, #ff0050);
 }
-.change-bg
-{
-	width: 550px;
-	height: 540px;
-	transform: translate(-60%,-30%);
+
+.hamburger>div{
+	position: absolute;
+	width: 60%;
+	height: 3px;
+	border-radius: 1.5px;
+	background-color: #fff;
+	transition: .4s;
 }
-.change .bar{
-	background-color: #2c3e50;
+
+.hamburger>div:before{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 3px;
+	border-radius: 1.5px;
+	background-color: #fff;
+	top: -10px;
+	right: 0;
+	transition: .4s;
 }
-.change #bar1{
-	transform: translateY(4px) rotateZ(-45deg);
+
+.hamburger>div:after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 3px;
+	border-radius: 1.5px;
+	background-color: #ffff;
+	top: 10px;
+	right: 0;
+	transition: .4s;
 }
-.change #bar3{
-	transform: translateY(-6px) rotate(45deg);
+
+.toggler:checked + .hamburger>div{
+	transform: rotate(135deg);
 }
-.change #bar2{
+
+.toggler:checked:hover + .hamburger>div{
+	transform: rotate(225deg);
+}
+
+.toggler:checked + .hamburger>div:before, .toggler:checked + .hamburger>div:after{
+	top: 0;
+	transform: rotate(90deg);
+}
+
+.menu{
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	transition: .6s;
+}
+
+.menu > div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-150%) translateY(-50%);
+    width: 1600px;
+    height: 100vh; 
+    border-radius: 0%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: .6s;
+}
+
+.menu > div > div{
+	max-width: 90vw;
+	max-height: 100vh;
 	opacity: 0;
+	transition: .6s;
 }
-.change{
-	display: block;
-} 
+
+.menu > div > div > ul > li{
+	list-style: none;
+}
+
+.menu > div > div > ul > li > a{
+	text-decoration: none;
+	color: #fff;
+	font-weight: 550;
+	text-transform: uppercase;
+	margin: .5rem;
+	margin-top: 25%;
+	transition: .3s;
+	font-size: 4.2rem;
+	display: inline-block;
+}
+
+.menu > div > div > ul > li > a:hover{
+	color: #fff;
+}
+
+.toggler:checked ~ .menu{
+	visibility: visible;
+}
+
+.toggler:checked ~ .menu > div{
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.toggler:checked ~ .menu > div > div{
+	opacity: 1;
+}
 /*----------- FIM HAMBURGUER MENU --------------- */
 
 /*----------- BANNER --------------- */
 
 .banner {
     /*background: url(../anexos/Banner.jpg) no-repeat fixed;*/
-    background: linear-gradient(to right, #6017B5, #9b59b6);
-    
+	position: relative;
+    background: linear-gradient(to top, #2c2c54 25%, #227093);
+	height: 1000px;
+	top: 180px;
+    border: none;
 }
+
+svg{
+	position: relative;
+	padding: 0;
+	top: 145px;
+}
+
+#content-banner{
+	position: absolute;
+	bottom: 35%;
+}
+
 .title {
     width: 100%;
 }
 .title h2 {
-    font-size: 2.5em; 
+	text-align: left;
+    font-size: 5.5em; 
     color: #fff; 
     font-weight: 700;
 }
 .title h3 {
-    font-size: 1.5em; 
+	text-align: left;
+    font-size: 3.5em; 
     color: #fff;
 }
 
 .buttons {
     width: 100%; 
-    margin-top: 2%;
+    margin-top: 10%;
 }
 .buttons i {
     float: right;
 }
 .btn {
     width: 100%; 
-    font-size: 1.5em; 
+    font-size: 3.5em; 
     cursor: pointer; 
     text-align: left; 
     padding: 5%; 
@@ -197,15 +296,18 @@ body{
 	background-color: #130300;
 }
 .newsletter h2 {
-	font-size: 1.2em; 
+	font-size: 5.2em; 
 	color: #fff; 
 	font-weight: 700;
 }
 .newsletter h3 {
+	font-size: 3.2em; 
 	color: #fff;
-	margin: 2%;
+	margin: 5%;
+	margin-top: 0;
 }
 .newsletter form {
+	font-size: 3.2em; 
 	margin-top: 2%;
 }
 .newsletter label {
@@ -236,16 +338,16 @@ body{
 /*----------- FIM NEWSLETTER --------------- */
 
 /*----------- BOX LOGIN --------------- */
-.box-login{
-	margin: 0;
+#box-login{
+	margin-bottom: 0;
 	padding: 3%;
 	align-items: center;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-	width: 70%;
+	width: 60%;
 	height: 50%;
 	border-radius: 5px;
 	box-shadow: 0 0 5px  #2c2c54;
@@ -284,16 +386,13 @@ body{
 
 /*----------- RODAPÉ --------------- */
 .rodape {
-	background: linear-gradient(to right, #227093, #2c2c54);
+	background: linear-gradient(to right, #fac569, #ff0050);
+
+	bottom: 0;
 }
-.rodape-login {
-	position:fixed;
-    bottom:0;
-    width:100%;
-	background: linear-gradient(to right, #227093, #2c2c54);
-}
+
 .social-icons a {
-	font-size: 1.5em; 
+	font-size: 3.5em; 
 	color: rgba(255, 255, 255, 0.7); 
 	margin-right: 3%;
 }
@@ -304,6 +403,7 @@ body{
 	color: rgba(255,255,255);
 }
 .copyright {
+	font-size: 3.2em; 
 	margin-top: 2%; 
 	color: rgba(255, 255, 255, 0.7);
 }
