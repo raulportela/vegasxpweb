@@ -51,6 +51,17 @@ main{
     background: url(../anexos/logo.png) center center/135px no-repeat; 
 	font-size: 0px;
 }
+.logo-banner-secundario {
+	width: 700px; 
+	height: 250px;
+	left: 50%; background: url(../anexos/Spotify-logo.png) center center/700px no-repeat; 
+	font-size: 0px;
+	margin: 0;
+	align-items: center;
+	left: 120px;
+	position: absolute;
+	bottom: -100px;
+}
 
 
 /*----------- FIM CABEÇALHO --------------- */
@@ -337,52 +348,55 @@ svg{
 
 /*----------- FIM NEWSLETTER --------------- */
 
-/*----------- BOX LOGIN --------------- */
-#box-login{
-	margin-bottom: 0;
-	padding: 3%;
+/*----------- BOX FORMULARIO --------------- */
+.box-form{
+	position: relative;
+	padding: 30px;
+	width: 800px;
+	height: 1000px;
 	align-items: center;
-    position: relative;
+	bottom: 0;
     top: 50%;
     left: 50%;
-    margin-right: -50%;
+    margin-top: 500px;
     transform: translate(-50%, -50%);
-	width: 60%;
-	height: 50%;
 	border-radius: 5px;
 	box-shadow: 0 0 5px  #2c2c54;
+} 
+
+.btn-border {
+	border: 1px solid #000; 
+
 }
-
-
-.box-login input{
+.box-form input{
 	width: 100%;
 	background-color: #fff; 
-	color: #130400; 
-	border: 1px solid #130400; 
+	color: #fff; 
+	border: 1px solid #000; 
 	padding: 5%; 
 	border-radius: 5px; 
-	margin-top: 1%;
-	margin-bottom: 2%;
+	
 }
-
-.box-login h2 {
-	text-align: center;
-	font-weight: bold;
-	font-size: 1.8em; 
-	color: #130400; 
+.box-form label {
+	font-size: 3.2em;
+	margin-top: 10px;
+	float: left;
+}
+.box-form h2 {
+	font-size: 5.2em; 
+	color: #000; 
 	font-weight: 700;
 }
-.box-login form {
+.box-form form {
 	align-items: center;
     position: absolute;
-	padding: 4%;
     top: 50%;
     left: 50%;
-    margin-right: -50%;
+    margin-right: -100%;
     transform: translate(-50%, -50%);
 }
 
-/*----------- FIM BOX LOGIN --------------- */
+/*----------- FIM BOX FORMULARIO --------------- */
 
 /*----------- RODAPÉ --------------- */
 .rodape {
